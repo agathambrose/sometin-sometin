@@ -22,8 +22,32 @@ class _MyHomePageState extends State<MyHomePage> {
         body: ListView.builder(
             itemCount: 4,
             itemBuilder: (BuildContext context, int index) {
-              return _balanceView();
+              Widget content = Container();
+              if (index == 0) {
+                content = _balanceView();
+              } else if (index == 1) {
+                content = _discountView();
+              } else if (index == 2) {
+                content = _anotherView();
+              }
+              return content;
             }));
+  }
+
+  Widget _discountView() {
+    return Container(
+      child: ListTile(
+        title: Text("discount view"),
+      ),
+    );
+  }
+
+  Widget _anotherView() {
+    return Container(
+      child: ListTile(
+        title: Text("another view"),
+      ),
+    );
   }
 
   Widget _balanceView() {
@@ -37,10 +61,21 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               Text("Total Gift Voucher Value"),
-              Text("GHS 10.00"),
               Text(
-                "Buy gift voucher",
-                style: TextStyle(color: primaryColor),
+                "GHS 10.00",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              //Use expanded for the spacing instead of the padding wdiget
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: Text(
+                  "Buy gift voucher",
+                  style: TextStyle(
+                      color: primaryColor, fontWeight: FontWeight.w600),
+                ),
               ),
             ],
           )),
