@@ -1,3 +1,3 @@
 import 'package:flutter/cupertino.dart';
 
-const Color primaryColor = Color(0x0FFFFFFF);
+const Color primaryColor = Color(0xFFF70310);
